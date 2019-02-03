@@ -1,16 +1,19 @@
 package co.matrixdevelopment.solidskies.commands;
 
 import java.io.File;
+import java.util.HashMap;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import co.matrixdevelopment.solidskies.DatabaseManager;
+import co.matrixdevelopment.solidskies.SolidSkies;
+import co.matrixdevelopment.solidskies.island.SSIsland;
 import co.matrixdevelopment.solidskies.world.SSWorld;
 import net.md_5.bungee.api.ChatColor;
 
@@ -26,7 +29,7 @@ public class AdminCommands implements CommandExecutor {
                 case "world_create":
                     WorldCreator wc = new WorldCreator("SolidSkies");
                     wc.generator(new SSWorld());
-                    World w = wc.createWorld();
+                    wc.createWorld();
                     break;
                 case "world_teleport":
                     p.teleport(new Location(Bukkit.getWorld("SolidSkies"), 8, 25, 8));
@@ -35,6 +38,21 @@ public class AdminCommands implements CommandExecutor {
                     File f = Bukkit.getWorld("SolidSkies").getWorldFolder();
                     if (f.exists() && f.isDirectory())
                         deleteWorld(f);
+                    break;
+                case "is_force_create":
+                    SSIsland is = new SSIsland(SolidSkies.lastX, SolidSkies.lastY, p);
+                    HashMap<String, String> values = new HashMap<String, String>() {
+                        private static final long serialVersionUID = 1L;
+                        {
+                            put("uuid", p.getUniqueId().toString());
+                            put("level", Integer.toString(is.getLevel()));
+                            put("x", Integer.toString(is.getX()));
+                            put("y", Integer.toString(is.getY()));
+                        }
+                    };
+                    DatabaseManager.getInstance().insertValuesIntoTable("islands", values);
+                    SolidSkies.lastX += 10;
+                    SolidSkies.lastY += 10;
                     break;
                 default:
                     p.sendMessage(ChatColor.RED + "This is not a valid command!");

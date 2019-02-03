@@ -2,7 +2,9 @@ package co.matrixdevelopment.solidskies.island;
 
 import java.util.ArrayList;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 public class SSIsland {
@@ -19,6 +21,9 @@ public class SSIsland {
         this.x = x;
         this.y = y;
         this.owner = owner;
+
+        Location loc = new Location(Bukkit.getWorld("SolidSkies"), x, y, 5);
+        loc.getBlock().setType(Material.DIRT);
     }
 
     public void updateBlockCount() {
@@ -73,5 +78,12 @@ public class SSIsland {
     */
     public int getY() {
         return y;
+    }
+
+    /**
+     * @return the blockCount
+     */
+    public int getBlockCount() {
+        return blockCount;
     }
 }
