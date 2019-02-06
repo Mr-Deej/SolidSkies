@@ -23,7 +23,6 @@
         </repository>
     </repositories>
 
-<<<<<<< HEAD
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -42,7 +41,7 @@
       <version>2.4.0</version>
       <scope>compile</scope>
     </dependency>
-
+</dependencies>
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
