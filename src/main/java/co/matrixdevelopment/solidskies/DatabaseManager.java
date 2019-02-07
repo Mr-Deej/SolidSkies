@@ -25,7 +25,6 @@ public class DatabaseManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     public void insertValuesIntoTable(String table, HashMap<String, String> values) {

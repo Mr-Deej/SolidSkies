@@ -1,8 +1,8 @@
-name: Solid-Skies
+name: SolidSkies
 main: co.matrixdevelopment.solidskies.SolidSkies
-version: 0.0.5
+version: ${project.version}
 api-version: 1.13
-description: A skyblock plugin
+description: A skyblock plugin, everything more, nothing less
 commands:
   sa:
     description: The Solid Skies admin command
