@@ -2,6 +2,7 @@ package co.matrixdevelopment.solidskies.island;
 
 import java.util.ArrayList;
 
+import co.matrixdevelopment.solidskies.filehandler.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -39,9 +40,11 @@ public class SSIsland {
      */
     public boolean addPlayerToParty(Player p) {
         if (party.size() >= 4) {
+            p.sendMessage(Messages.PARTY_FULL.getMessageNoPrefix());
             return false;
         }
         party.add(p);
+        p.sendMessage(Messages.ADDED_PLAYER_TO_PARTY.getMessageNoPrefix());
         return true;
     }
 

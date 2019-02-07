@@ -3,6 +3,7 @@ package co.matrixdevelopment.solidskies.commands;
 import java.io.File;
 import java.util.HashMap;
 
+import co.matrixdevelopment.solidskies.filehandler.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.WorldCreator;
@@ -15,7 +16,6 @@ import co.matrixdevelopment.solidskies.DatabaseManager;
 import co.matrixdevelopment.solidskies.SolidSkies;
 import co.matrixdevelopment.solidskies.island.SSIsland;
 import co.matrixdevelopment.solidskies.world.SSWorld;
-import net.md_5.bungee.api.ChatColor;
 
 public class AdminCommands implements CommandExecutor {
 
@@ -30,14 +30,17 @@ public class AdminCommands implements CommandExecutor {
                     WorldCreator wc = new WorldCreator("SolidSkies");
                     wc.generator(new SSWorld());
                     wc.createWorld();
+                    p.sendMessage(Messages.WORLD_CREATED.getMessageNoPrefix());
                     break;
                 case "world_teleport":
                     p.teleport(new Location(Bukkit.getWorld("SolidSkies"), 8, 25, 8));
+                    p.sendMessage(Messages.WORLD_TELEPORT.getMessageNoPrefix());
                     break;
                 case "world_delete":
                     File f = Bukkit.getWorld("SolidSkies").getWorldFolder();
                     if (f.exists() && f.isDirectory())
                         deleteWorld(f);
+                    p.sendMessage(Messages.WORLD_DELETED.getMessageNoPrefix());
                     break;
                 case "is_force_create":
                     SSIsland is = new SSIsland(SolidSkies.lastX, SolidSkies.lastY, p);
@@ -53,9 +56,10 @@ public class AdminCommands implements CommandExecutor {
                     DatabaseManager.getInstance().insertValuesIntoTable("islands", values);
                     SolidSkies.lastX += 10;
                     SolidSkies.lastY += 10;
+                    p.sendMessage(Messages.ISLAND_FORCE_CREATED.getMessageNoPrefix());
                     break;
                 default:
-                    p.sendMessage(ChatColor.RED + "This is not a valid command!");
+                    p.sendMessage(Messages.INVALID_COMMAND.getMessageNoPrefix());
                     break;
                 }
             }
