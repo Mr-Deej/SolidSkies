@@ -38,8 +38,7 @@ public enum Messages {
             "&9/ss Help - &eOpens this help menu.",
             "&9/sa world_create - &eCreates the SolidSkies island world.",
             "&9/sa world_delete - &eDeletes the SolidSkies island world.",
-            "&9/sa is_force_create - &eCreates an Island forcefully.",
-            "&9Filler"));
+            "&9/sa is_force_create - &eCreates an Island forcefully."));
 
     private String path;
     private String defaultMessage;
@@ -57,7 +56,7 @@ public enum Messages {
     }
 
     //TODO: these are noted because the prefix statement causes an NPE requesting help
-   /* public String getMessage() {
+    /*public String getMessage() {
         if(isList()) {
             if(exists()) {
                 return Methods.color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path)));
