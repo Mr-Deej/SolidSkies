@@ -78,7 +78,7 @@ public class FileManager {
                         }
                     }
 
-                }else {
+                } else {
                     homeFile.mkdir();
                     if(log) System.out.println(prefix + "The folder " + homeFolder + "/ was not found so it was created.");
                     for(String fileName : autoGenerateFiles.keySet()) {
@@ -188,7 +188,7 @@ public class FileManager {
     public void saveFile(Files file) {
         try {
             configurations.get(file).save(files.get(file));
-        }catch(IOException e) {
+        } catch(IOException e) {
             System.out.println(prefix + "Could not save " + file.getFileName() + "!");
             e.printStackTrace();
         }
@@ -204,11 +204,11 @@ public class FileManager {
             try {
                 file.getFile().save(new File(plugin.getDataFolder(), file.getHomeFolder() + "/" + file.getFileName()));
                 if(log) System.out.println(prefix + "Successfuly saved the " + file.getFileName() + ".");
-            } catch(Exception e) {
+            } catch (Exception e) {
                 System.out.println(prefix + "Could not save " + file.getFileName() + "!");
                 e.printStackTrace();
             }
-        }  else {
+        } else {
             if(log) System.out.println(prefix + "The file " + name + ".yml could not be found!");
         }
     }
