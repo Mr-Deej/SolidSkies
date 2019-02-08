@@ -32,7 +32,7 @@ public class DatabaseManager {
         int index = 0;
         String constructed = "INSERT INTO " + table + "(";
         for (String key : values.keySet()) {
-            constructed += key + ",";
+            constructed += key; //+ "," < possibly cause the error
         }
         constructed += ") VALUES (";
         for (String key : values.keySet()) {
