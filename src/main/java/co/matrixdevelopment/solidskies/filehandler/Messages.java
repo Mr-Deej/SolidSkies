@@ -116,7 +116,7 @@ public enum Messages {
         if(isList()) {
             if(exists()) {
                 message = Methods.color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path), placeholders));
-            }else {
+            } else {
                 message = Methods.color(convertList(getDefaultListMessage(), placeholders));
             }
         } else {
@@ -161,7 +161,7 @@ public enum Messages {
                 saveFile = true;
                 if(message.getDefaultMessage() != null) {
                     messages.set("Messages." + message.getPath(), message.getDefaultMessage());
-                }else {
+                } else {
                     messages.set("Messages." + message.getPath(), message.getDefaultListMessage());
                 }
             }
