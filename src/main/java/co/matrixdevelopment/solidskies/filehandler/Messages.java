@@ -60,13 +60,13 @@ public enum Messages {
         if(isList()) {
             if(exists()) {
                 return Methods.color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path)));
-            }else {
+            } else {
                 return Methods.color(convertList(getDefaultListMessage()));
             }
-        }else {
+        }  else {
             if(exists()) {
                 return Methods.getPrefix(Files.MESSAGES.getFile().getString("Messages." + path));
-            }else {
+            } else {
                 return Methods.getPrefix(getDefaultMessage());
             }
         }
@@ -77,13 +77,13 @@ public enum Messages {
         if(isList()) {
             if(exists()) {
                 message = Methods.color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path), placeholders));
-            }else {
+            } else {
                 message = Methods.color(convertList(getDefaultListMessage(), placeholders));
             }
-        }else {
+        } else {
             if(exists()) {
                 message = Methods.getPrefix(Files.MESSAGES.getFile().getString("Messages." + path));
-            }else {
+            } else {
                 message = Methods.getPrefix(getDefaultMessage());
             }
             for(String ph : placeholders.keySet()) {
@@ -99,13 +99,13 @@ public enum Messages {
         if(isList()) {
             if(exists()) {
                 return Methods.color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path)));
-            }else {
+            } else {
                 return Methods.color(convertList(getDefaultListMessage()));
             }
-        }else {
+        } else {
             if(exists()) {
                 return Methods.color(Files.MESSAGES.getFile().getString("Messages." + path));
-            }else {
+            } else {
                 return Methods.color(getDefaultMessage());
             }
         }
@@ -119,10 +119,10 @@ public enum Messages {
             }else {
                 message = Methods.color(convertList(getDefaultListMessage(), placeholders));
             }
-        }else {
+        } else {
             if(exists()) {
                 message = Methods.color(Files.MESSAGES.getFile().getString("Messages." + path));
-            }else {
+            } else {
                 message = Methods.color(getDefaultMessage());
             }
             for(String ph : placeholders.keySet()) {
@@ -178,7 +178,7 @@ public enum Messages {
     private Boolean isList() {
         if(Files.MESSAGES.getFile().contains("Messages." + path)) {
             return !Files.MESSAGES.getFile().getStringList("Messages." + path).isEmpty();
-        }else {
+        } else {
             return defaultMessage == null;
         }
     }

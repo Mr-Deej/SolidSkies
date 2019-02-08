@@ -82,10 +82,10 @@ public class Methods {
             if(!player.hasPermission("solidskies." + perm)) {
                 player.sendMessage(Messages.NO_PERMISSION.getMessageNoPrefix());
                 return false;
-            }else {
+            } else {
                 return true;
             }
-        }else {
+        } else {
             return true;
         }
     }

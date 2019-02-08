@@ -49,7 +49,7 @@ public class FileManager {
                     File serverFile = new File(plugin.getDataFolder(), "/" + file.getFileLocation());
                     InputStream jarFile = getClass().getResourceAsStream("/" + file.getFileLocation());
                     copyFile(jarFile, serverFile);
-                }catch(Exception e) {
+                } catch(Exception e) {
                     if(log) System.out.println(prefix + "Failed to load " + file.getFileName());
                     e.printStackTrace();
                     continue;
@@ -92,7 +92,7 @@ public class FileManager {
                                     customFiles.add(new CustomFile(fileName, homeFolder, plugin));
                                 }
                                 if(log) System.out.println(prefix + "Created new default file: " + homeFolder + "/" + fileName + ".");
-                            }catch(Exception e) {
+                            } catch(Exception e) {
                                 if(log) System.out.println(prefix + "Failed to create new default file: " + homeFolder + "/" + fileName + "!");
                                 e.printStackTrace();
                             }
@@ -204,11 +204,11 @@ public class FileManager {
             try {
                 file.getFile().save(new File(plugin.getDataFolder(), file.getHomeFolder() + "/" + file.getFileName()));
                 if(log) System.out.println(prefix + "Successfuly saved the " + file.getFileName() + ".");
-            }catch(Exception e) {
+            } catch(Exception e) {
                 System.out.println(prefix + "Could not save " + file.getFileName() + "!");
                 e.printStackTrace();
             }
-        }else {
+        }  else {
             if(log) System.out.println(prefix + "The file " + name + ".yml could not be found!");
         }
     }
@@ -238,11 +238,11 @@ public class FileManager {
             try {
                 file.file = YamlConfiguration.loadConfiguration(new File(plugin.getDataFolder(), "/" + file.getHomeFolder() + "/" + file.getFileName()));
                 if(log) System.out.println(prefix + "Successfuly reload the " + file.getFileName() + ".");
-            }catch(Exception e) {
+            }  catch(Exception e) {
                 System.out.println(prefix + "Could not reload the " + file.getFileName() + "!");
                 e.printStackTrace();
             }
-        }else {
+        } else {
             if(log) System.out.println(prefix + "The file " + name + ".yml could not be found!");
         }
     }
@@ -265,7 +265,7 @@ public class FileManager {
             while((i = in.read(buf)) != -1) {
                 fos.write(buf, 0, i);
             }
-        }finally {
+        } finally {
             if(in != null) {
                 in.close();
             }
@@ -355,10 +355,10 @@ public class FileManager {
             if(new File(plugin.getDataFolder(), "/" + homeFolder).exists()) {
                 if(new File(plugin.getDataFolder(), "/" + homeFolder + "/" + name).exists()) {
                     file = YamlConfiguration.loadConfiguration(new File(plugin.getDataFolder(), "/" + homeFolder + "/" + name));
-                }else {
+                } else {
                     file = null;
                 }
-            }else {
+            } else {
                 new File(plugin.getDataFolder(), "/" + homeFolder).mkdir();
                 if(log) System.out.println(prefix + "The folder " + homeFolder + "/ was not found so it was created.");
                 file = null;
@@ -423,12 +423,12 @@ public class FileManager {
                     file.save(new File(plugin.getDataFolder(), homeFolder + "/" + fileName));
                     if(log) System.out.println(prefix + "Successfuly saved the " + fileName + ".");
                     return true;
-                }catch(Exception e) {
+                } catch(Exception e) {
                     System.out.println(prefix + "Could not save " + fileName + "!");
                     e.printStackTrace();
                     return false;
                 }
-            }else {
+            } else {
                 if(log) System.out.println(prefix + "There was a null custom file that could not be found!");
             }
             return false;
@@ -444,11 +444,11 @@ public class FileManager {
                     file = YamlConfiguration.loadConfiguration(new File(plugin.getDataFolder(), "/" + homeFolder + "/" + fileName));
                     if(log) System.out.println(prefix + "Successfuly reload the " + fileName + ".");
                     return true;
-                }catch(Exception e) {
+                } catch(Exception e) {
                     System.out.println(prefix + "Could not reload the " + fileName + "!");
                     e.printStackTrace();
                 }
-            }else {
+            } else {
                 if(log) System.out.println(prefix + "There was a null custom file that was not found!");
             }
             return false;
