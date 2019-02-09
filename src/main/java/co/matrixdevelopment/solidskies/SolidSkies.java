@@ -25,10 +25,6 @@ public class SolidSkies extends JavaPlugin {
     
         super.onEnable();
         instance = this;
-        saveDefaultConfig();
-        fileManager.logInfo(true).setup(this);
-
-        Messages.addMissingMessages();
 
         this.getCommand("sa").setExecutor(new AdminCommands());
         DatabaseManager.getInstance().createIslandTableIfNotExists();
@@ -46,6 +42,10 @@ public class SolidSkies extends JavaPlugin {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        saveDefaultConfig();
+        fileManager.logInfo(true).setup(this);
+        Messages.addMissingMessages();
     }
 
     @Override
