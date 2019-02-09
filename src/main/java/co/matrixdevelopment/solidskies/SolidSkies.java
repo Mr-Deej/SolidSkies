@@ -4,14 +4,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
 
+
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import co.matrixdevelopment.solidskies.commands.AdminCommands;
+import co.matrixdevelopment.solidskies.filehandler.FileManager;
+import co.matrixdevelopment.solidskies.filehandler.Messages;
+
+//TODO: add placeholders for island information, challenge title, etc
 
 public class SolidSkies extends JavaPlugin {
 
     private static SolidSkies instance;
+    public static FileManager fileManager = FileManager.getInstance();
 
     public static int lastX = 0;
     public static int lastY = 0;
@@ -38,6 +44,10 @@ public class SolidSkies extends JavaPlugin {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        saveDefaultConfig();
+        fileManager.logInfo(true).setup(this);
+        Messages.addMissingMessages();
     }
 
     @Override

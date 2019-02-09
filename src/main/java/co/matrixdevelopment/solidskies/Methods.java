@@ -1,9 +1,9 @@
 package co.matrixdevelopment.solidskies;
 
 import co.matrixdevelopment.solidskies.filehandler.FileManager;
-//import co.matrixdevelopment.solidskies.filehandler.FileManager.Files;
-//TODO: requires prefix from config not config yet
+import co.matrixdevelopment.solidskies.filehandler.FileManager.Files;
 import co.matrixdevelopment.solidskies.filehandler.Messages;
+
 import org.bukkit.*;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -18,7 +18,7 @@ public class Methods {
         return ChatColor.translateAlternateColorCodes('&', msg);
     }
 
-    /*
+
     public static String getPrefix() {
         return color(Files.CONFIG.getFile().getString("Settings.Prefix"));
     }
@@ -26,7 +26,7 @@ public class Methods {
     public static String getPrefix(String msg) {
         return color(Files.CONFIG.getFile().getString("Settings.Prefix") + msg);
     }
-    */
+
 
     public static String removeColor(String msg) {
         return ChatColor.stripColor(msg);

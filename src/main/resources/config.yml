@@ -1,1 +1,5 @@
-#I am empty fam
+Settings:
+  Prefix: '&7[&aSolid-Skies&7]: ' #Prefix of when you get Messages.
+  Feature-Toggle: #Toggle if a feature on or off.
+    Fill: true #Able to fill using filler
+    Filler: true #Able to use the filling filler.
