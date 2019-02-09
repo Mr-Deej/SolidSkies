@@ -1,6 +1,7 @@
 target/
-.idea
 SolidSkies.iml
+dependency-reduced-pom.xml
+.idea
 .classpath
 .project
 .settings/

@@ -13,6 +13,7 @@ public enum Messages {
 
     //TODO add placeholders for island information, challenge title, etc
 
+    DEFAULT_MESSAGE("Default-Message","I am a default of the default message"),
     INVALID_COMMAND("Invalid-Command","&cPlease check the solid skies help command&7."),
     PLAYERS_ONLY("Players-Only", "&cOnly players can use this command&7."),
     RELOAD("Reload", "&7You have just reloaded the Crazy Auctions Files&7."),
@@ -55,8 +56,8 @@ public enum Messages {
         this.defaultListMessage = defaultListMessage;
     }
 
-    //TODO: these are noted because the prefix statement causes an NPE requesting help
-    /*public String getMessage() {
+    //TODO: Unnoted to test wether they work or not with a valid config file
+    public String getMessage() {
         if(isList()) {
             if(exists()) {
                 return Methods.color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path)));
@@ -93,7 +94,7 @@ public enum Messages {
             }
         }
         return message;
-    }*/
+    }
 
     public String getMessageNoPrefix() {
         if(isList()) {

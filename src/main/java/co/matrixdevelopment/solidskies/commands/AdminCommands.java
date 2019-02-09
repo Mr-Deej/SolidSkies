@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 
 //import co.matrixdevelopment.solidskies.filehandler.Messages;
+import co.matrixdevelopment.solidskies.filehandler.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.WorldCreator;
@@ -30,19 +31,19 @@ public class AdminCommands implements CommandExecutor {
                     WorldCreator wc = new WorldCreator("SolidSkies");
                     wc.generator(new SSWorld());
                     wc.createWorld();
-                    //p.sendMessage(Messages.WORLD_CREATED.getMessageNoPrefix());
+                    p.sendMessage(Messages.WORLD_CREATED.getMessage());
                     //TODO: Fix npe exception with sendMessage
                     break;
                 case "world_teleport":
                     p.teleport(new Location(Bukkit.getWorld("SolidSkies"), 8, 25, 8));
-                    //p.sendMessage(Messages.WORLD_TELEPORT.getMessageNoPrefix());
+                    p.sendMessage(Messages.WORLD_TELEPORT.getMessage());
                     //TODO: Fix npe exception with sendMessage
                     break;
                 case "world_delete":
                     File f = Bukkit.getWorld("SolidSkies").getWorldFolder();
                     if (f.exists() && f.isDirectory())
                         deleteWorld(f);
-                    //p.sendMessage(Messages.WORLD_DELETED.getMessageNoPrefix());
+                    p.sendMessage(Messages.WORLD_DELETED.getMessage());
                     //TODO: Fix npe exception with sendMessage
                     break;
                 case "is_force_create":
@@ -59,11 +60,11 @@ public class AdminCommands implements CommandExecutor {
                     DatabaseManager.getInstance().insertValuesIntoTable("islands", values);
                     SolidSkies.lastX += 10;
                     SolidSkies.lastY += 10;
-                    //p.sendMessage(Messages.ISLAND_FORCE_CREATED.getMessageNoPrefix());
+                    p.sendMessage(Messages.ISLAND_FORCE_CREATED.getMessageNoPrefix());
                     //TODO: Fix npe exception with sendMessage
                     break;
                 default:
-                    //p.sendMessage(Messages.DEFAULT_MESSAGE.getMessageNoPrefix());
+                    p.sendMessage(Messages.DEFAULT_MESSAGE.getMessage());
                     //TODO: Fix npe exception with sendMessage
                     break;
                 }
