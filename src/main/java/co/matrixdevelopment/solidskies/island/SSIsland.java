@@ -45,7 +45,6 @@ public class SSIsland {
         }
         party.add(p);
         p.sendMessage(Messages.ADDED_PLAYER_TO_PARTY.getMessageNoPrefix());
-        //TODO: Fix npe exception with sendMessage
         return true;
     }
 

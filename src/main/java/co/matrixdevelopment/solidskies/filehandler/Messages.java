@@ -11,8 +11,6 @@ import java.util.List;
 
 public enum Messages {
 
-    //TODO add placeholders for island information, challenge title, etc
-
     DEFAULT_MESSAGE("Default-Message","I am a default of the default message"),
     INVALID_COMMAND("Invalid-Command","&cPlease check the solid skies help command&7."),
     PLAYERS_ONLY("Players-Only", "&cOnly players can use this command&7."),
@@ -32,7 +30,7 @@ public enum Messages {
     ISLAND_DELETED("Island-Deleted", "&7You have deleted your island."),
     WORLD_CREATED("World-Created", "&7You have created the SolidSkies island world."),
     WORLD_DELETED("World-Deleted", "&7You have deleted the SolidSkies island world"),
-    WORLD_TELEPORT("World-Teleport", "&7You have been teleported to the SolidSkies island world at &ex:8 y:25 z:8"),
+    WORLD_TELEPORT("World-Teleport", "&7You have been teleported to the SolidSkies island world."),
     SolidSkies_HELP("SolidSkies-Help", "&7/ss help"),
     HELP("Help-Menu", Arrays.asList(
             "&e-- &6Solid Skies Help &e--",
@@ -56,7 +54,6 @@ public enum Messages {
         this.defaultListMessage = defaultListMessage;
     }
 
-    //TODO: Unnoted to test wether they work or not with a valid config file
     public String getMessage() {
         if(isList()) {
             if(exists()) {

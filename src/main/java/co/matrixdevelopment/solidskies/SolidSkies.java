@@ -12,6 +12,8 @@ import co.matrixdevelopment.solidskies.commands.AdminCommands;
 import co.matrixdevelopment.solidskies.filehandler.FileManager;
 import co.matrixdevelopment.solidskies.filehandler.Messages;
 
+//TODO: add placeholders for island information, challenge title, etc
+
 public class SolidSkies extends JavaPlugin {
 
     private static SolidSkies instance;
