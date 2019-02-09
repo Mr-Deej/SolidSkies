@@ -1,6 +1,7 @@
 target/
 SolidSkies.iml
 dependency-reduced-pom.xml
+.travis.yml
 .idea
 .classpath
 .project
