@@ -114,7 +114,7 @@ public enum Messages {
         if(isList()) {
             if(exists()) {
                 message = color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path), placeholders));
-            }else {
+            } else {
                 message = color(convertList(getDefaultListMessage(), placeholders));
             }
         } else {
