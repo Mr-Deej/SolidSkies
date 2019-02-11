@@ -113,15 +113,15 @@ public enum Messages {
         String message;
         if(isList()) {
             if(exists()) {
-                message = color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path), placeholders));
+                message = Methods.color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path), placeholders));
             } else {
-                message = color(convertList(getDefaultListMessage(), placeholders));
+                message = Methods.color(convertList(getDefaultListMessage(), placeholders));
             }
         } else {
             if(exists()) {
-                message = color(Files.MESSAGES.getFile().getString("Messages." + path));
+                message = Methods.color(Files.MESSAGES.getFile().getString("Messages." + path));
             } else {
-                message = color(getDefaultMessage());
+                message = Methods.color(getDefaultMessage());
             }
             for(String ph : placeholders.keySet()) {
                 if(message.contains(ph)) {
