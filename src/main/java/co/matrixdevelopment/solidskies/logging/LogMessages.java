@@ -1,6 +1,6 @@
 package co.matrixdevelopment.solidskies.logging;
 
-import static co.matrixdevelopment.solidskies.filehandler.Messages.tell;
+import static co.matrixdevelopment.solidskies.Methods.tell;
 import co.matrixdevelopment.solidskies.SolidSkies;
 import org.bukkit.Bukkit;
 
