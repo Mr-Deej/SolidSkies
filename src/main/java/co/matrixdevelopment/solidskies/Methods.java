@@ -27,7 +27,6 @@ public class Methods {
         return color(Files.CONFIG.getFile().getString("Settings.Prefix") + msg);
     }
 
-
     public static String removeColor(String msg) {
         return ChatColor.stripColor(msg);
     }
@@ -88,5 +87,18 @@ public class Methods {
         } else {
             return true;
         }
+    }
+
+    public static void sendTitle(Player pl, String title, String subtitle) {
+        pl.sendTitle(color(title), color(subtitle), 20, 3 * 20, 10);
+    }
+
+    public static void tell(CommandSender toWhom, String... messages) {
+        for (final String message : messages)
+            tell(toWhom, message);
+    }
+
+    public static void tell(CommandSender toWhom, String message) {
+        toWhom.sendMessage(color(message));
     }
 }
