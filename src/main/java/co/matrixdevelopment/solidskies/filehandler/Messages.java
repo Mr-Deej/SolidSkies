@@ -43,14 +43,13 @@ public enum Messages {
     private String path;
     private String defaultMessage;
     private List<String> defaultListMessage;
-    private static FileManager fileManager = FileManager.getInstance();
 
-    private Messages(String path, String defaultMessage) {
+    Messages(String path, String defaultMessage) {
         this.path = path;
         this.defaultMessage = defaultMessage;
     }
 
-    private Messages(String path, List<String> defaultListMessage) {
+    Messages(String path, List<String> defaultListMessage) {
         this.path = path;
         this.defaultListMessage = defaultListMessage;
     }
@@ -58,9 +57,9 @@ public enum Messages {
     public String getMessage() {
         if(isList()) {
             if(exists()) {
-                return color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path)));
+                return Methods.color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path)));
             } else {
-                return color(convertList(getDefaultListMessage()));
+                return Methods.color(convertList(getDefaultListMessage()));
             }
         }  else {
             if(exists()) {
@@ -75,9 +74,9 @@ public enum Messages {
         String message;
         if(isList()) {
             if(exists()) {
-                message = color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path), placeholders));
+                message = Methods.color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path), placeholders));
             } else {
-                message = color(convertList(getDefaultListMessage(), placeholders));
+                message = Methods.color(convertList(getDefaultListMessage(), placeholders));
             }
         } else {
             if(exists()) {
