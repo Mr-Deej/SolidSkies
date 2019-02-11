@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 
+import co.matrixdevelopment.solidskies.events.VillagerDeathListener;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -44,6 +45,8 @@ public class SolidSkies extends JavaPlugin {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        //Event Registry
+        getServer().getPluginManager().registerEvents(new VillagerDeathListener(), this);
 
         saveDefaultConfig();
         fileManager.logInfo(true).setup(this);

@@ -1,13 +1,14 @@
 package co.matrixdevelopment.solidskies.filehandler;
 
-import org.bukkit.configuration.file.FileConfiguration;
-
-import co.matrixdevelopment.solidskies.filehandler.FileManager.Files;
 import co.matrixdevelopment.solidskies.Methods;
+import co.matrixdevelopment.solidskies.filehandler.FileManager.Files;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+
+import static co.matrixdevelopment.solidskies.Methods.color;
 
 public enum Messages {
 
@@ -42,14 +43,13 @@ public enum Messages {
     private String path;
     private String defaultMessage;
     private List<String> defaultListMessage;
-    private static FileManager fileManager = FileManager.getInstance();
 
-    private Messages(String path, String defaultMessage) {
+    Messages(String path, String defaultMessage) {
         this.path = path;
         this.defaultMessage = defaultMessage;
     }
 
-    private Messages(String path, List<String> defaultListMessage) {
+    Messages(String path, List<String> defaultListMessage) {
         this.path = path;
         this.defaultListMessage = defaultListMessage;
     }
@@ -96,15 +96,15 @@ public enum Messages {
     public String getMessageNoPrefix() {
         if(isList()) {
             if(exists()) {
-                return Methods.color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path)));
+                return color(convertList(Files.MESSAGES.getFile().getStringList("Messages." + path)));
             } else {
-                return Methods.color(convertList(getDefaultListMessage()));
+                return color(convertList(getDefaultListMessage()));
             }
         } else {
             if(exists()) {
-                return Methods.color(Files.MESSAGES.getFile().getString("Messages." + path));
+                return color(Files.MESSAGES.getFile().getString("Messages." + path));
             } else {
-                return Methods.color(getDefaultMessage());
+                return color(getDefaultMessage());
             }
         }
     }
@@ -135,7 +135,7 @@ public enum Messages {
     public static String convertList(List<String> list) {
         String message = "";
         for(String m : list) {
-            message += Methods.color(m) + "\n";
+            message += color(m) + "\n";
         }
         return message;
     }
@@ -143,10 +143,10 @@ public enum Messages {
     public static String convertList(List<String> list, HashMap<String, String> placeholders) {
         String message = "";
         for(String m : list) {
-            message += Methods.color(m) + "\n";
+            message += color(m) + "\n";
         }
         for(String ph : placeholders.keySet()) {
-            message = Methods.color(message.replaceAll(ph, placeholders.get(ph))).replaceAll(ph, placeholders.get(ph).toLowerCase());
+            message = color(message.replaceAll(ph, placeholders.get(ph))).replaceAll(ph, placeholders.get(ph).toLowerCase());
         }
         return message;
     }
