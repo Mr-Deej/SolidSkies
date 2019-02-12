@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: 'target/SolidSkies.jar', fingerprint: true 
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true 
             }
         }
     }
