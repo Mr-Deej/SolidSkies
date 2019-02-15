@@ -1,5 +1,7 @@
 # SolidSkies
-<div style="text-align:center"><img src ="https://cdn.discordapp.com/attachments/491639754752786432/545015408621518898/Artboard_2.png" /></div>
+<p align="center">
+  <img width="750" height="500" src="https://cdn.discordapp.com/attachments/491639754752786432/545015408621518898/Artboard_2.png">
+</p>
 
 [![Build Status](https://img.shields.io/travis/com/MatrixDevTeam/SolidSkies.svg?style=flat-square)](https://travis-ci.com/MatrixDevTeam/SolidSkies)
 ![](https://img.shields.io/github/last-commit/MatrixDevTeam/SolidSkies.svg?style=popout-square)
